@@ -1,0 +1,16 @@
+{
+    "enabled": true,
+    "seeder": "App\\Modules\\Page\\Seeds\\DatabaseSeeder",
+    "provider": ["App\\Modules\\Page\\ServiceProvider"],
+    "command": ["App\\Modules\\Page\\Commands\\PagesReslug"],
+    "order": 20,
+    "admin": {
+        "menuOptions": [
+            {
+                "label": "Páginas",
+                "url": "/admin/page",
+                "icon": "/packages/module/page/assets/images/icon_page.png"
+            }
+        ]
+    }
+}
