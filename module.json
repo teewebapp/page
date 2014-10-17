@@ -1,8 +1,8 @@
 {
     "enabled": true,
-    "seeder": "App\\Modules\\Page\\Seeds\\DatabaseSeeder",
-    "provider": ["App\\Modules\\Page\\ServiceProvider"],
-    "command": ["App\\Modules\\Page\\Commands\\PagesReslug"],
+    "seeder": "Tee\\Page\\Seeds\\DatabaseSeeder",
+    "provider": ["Tee\\Page\\ServiceProvider"],
+    "command": ["Tee\\Page\\Commands\\PagesReslug"],
     "order": 20,
     "admin": {
         "menuOptions": [
