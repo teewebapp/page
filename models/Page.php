@@ -47,7 +47,7 @@ class Page extends Model implements SluggableInterface, StaplerableInterface {
     public function __construct(array $attributes = array()) {
         $this->hasAttachedFile('image', [
             'styles' => [
-                'medium' => '600x600',
+                'medium' => '300x300',
             ]
         ]);
 
@@ -69,7 +69,7 @@ class Page extends Model implements SluggableInterface, StaplerableInterface {
 
     public function getImageUrlAttribute() {
         if($this->image_file_name)
-            return $this->image->url('medium');
+            return $this->image->url();
         else
             return URL::to('images/no-photo.jpg');
     }
