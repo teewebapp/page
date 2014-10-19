@@ -47,7 +47,7 @@ class Page extends Model implements SluggableInterface, StaplerableInterface {
     public function __construct(array $attributes = array()) {
         $this->hasAttachedFile('image', [
             'styles' => [
-                'medium' => '470x330',
+                'medium' => '600x600',
             ]
         ]);
 
