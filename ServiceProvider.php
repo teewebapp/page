@@ -3,7 +3,7 @@
 namespace Tee\Page;
 
 use Tee\Page\Widgets\PageBoxList;
-use Widget;
+use Tee\System\Widget;
 
 class ServiceProvider extends \Illuminate\Support\ServiceProvider {
 

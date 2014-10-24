@@ -6,7 +6,9 @@ use Tee\Admin\Controllers\AdminBaseController;
 
 use Tee\Page\Models\Page;
 use Tee\Page\Models\PageCategory;
-use View, Redirect, Validator, Breadcrumbs, URL, Input;
+use View, Redirect, Validator, URL, Input;
+
+use Tee\System\Breadcrumbs;
 
 class AdminController extends AdminBaseController {
 

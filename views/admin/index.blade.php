@@ -1,6 +1,6 @@
-@extends('layouts.main')
+@extends('admin::layouts.main')
 
-{{ Asset::add('js/tableorder.js') }}
+{{ Tee\System\Asset::add(moduleAsset('admin', 'js/tableorder.js')) }}
 
 @section('content')
 
@@ -44,7 +44,7 @@
                             @endforeach
                         @else
                             <tr>
-                                <td colspan="3">
+                                <td colspan="4">
                                     Nenhuma página cadastrada
                                 </td>
                             </tr>
