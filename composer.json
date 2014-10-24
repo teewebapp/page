@@ -4,13 +4,9 @@
 	"keywords": ["teewebapp", "page"],
 	"license": "MIT",
 	"require": {
-		"laravel/framework": "4.2.*",
-		"creolab/laravel-modules": "dev-master",
-		"yaap/theme": "dev-master",
-		"lavary/laravel-menu": "dev-master",
-		"creitive/breadcrumbs": "dev-master",
-		"roumen/asset": "dev-master",
-		"pingpong/widget" : "1.0.*"
+		"teewebapp/system": "dev-master",
+		"cviebrock/eloquent-sluggable": "2.*",
+		"codesleeve/laravel-stapler": "v1.*"
 	},
 	"autoload": {
 		"classmap": [
