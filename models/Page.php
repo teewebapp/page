@@ -71,7 +71,7 @@ class Page extends Model implements SluggableInterface, StaplerableInterface {
         if($this->image_file_name)
             return $this->image->url();
         else
-            return URL::to('images/no-photo.jpg');
+            return URL::to(moduleAsset('system', 'images/no-photo.jpg'));
     }
 
     public function category() {
