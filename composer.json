@@ -4,7 +4,7 @@
 	"keywords": ["teewebapp", "page"],
 	"license": "MIT",
 	"require": {
-		"teewebapp/system": "dev-master",
+		"teewebapp/system": "dev-master@dev",
 		"cviebrock/eloquent-sluggable": "2.*",
 		"codesleeve/laravel-stapler": "1.*"
 	},
@@ -13,5 +13,5 @@
 			"."
 		]
 	},
-	"minimum-stability": "dev"
+	"minimum-stability": "stable"
 }
