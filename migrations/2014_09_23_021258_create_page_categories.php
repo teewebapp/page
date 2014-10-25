@@ -20,7 +20,7 @@ class CreatePageCategories extends Migration {
 		});
 
 		Schema::table('pages', function(Blueprint $table) {
-			$table->unsignedInteger('page_category_id');
+			$table->unsignedInteger('page_category_id')->nullable();
 			$table->foreign('page_category_id')->references('id')->on('page_categories');
 		});
 	}
