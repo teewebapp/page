@@ -1,6 +1,10 @@
 <?php
 
-class Tee\Page\Tests\CrudTest extends Tee\System\Tests\TestCase {
+namespace Tee\Page\Tests;
+
+use Tee\System\Tests\TestCase;
+
+class CrudTest extends TestCase {
 
     public function testSomethingIsTrue()
     {
