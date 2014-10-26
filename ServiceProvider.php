@@ -4,6 +4,7 @@ namespace Tee\Page;
 
 use Tee\Page\Widgets\PageBoxList;
 use Tee\System\Widget;
+use App;
 
 class ServiceProvider extends \Illuminate\Support\ServiceProvider {
 
