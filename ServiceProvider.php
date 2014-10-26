@@ -9,6 +9,8 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider {
 
     public function register()
     {
+        App::register('Cviebrock\EloquentSluggable\SluggableServiceProvider');
+        App::register('Codesleeve\LaravelStapler\LaravelStaplerServiceProvider');
         // registra os widgets
         Widget::register(
             'pageBoxList',
