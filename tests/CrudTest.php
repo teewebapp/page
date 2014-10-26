@@ -1,8 +1,10 @@
 <?php
 
-class ExampleTest extends PHPUnit_Framework_TestCase {
+class Tee\Page\Tests\CrudTest extends Tee\System\Tests\TestCase {
+
     public function testSomethingIsTrue()
     {
         $this->assertTrue(true);
     }
+
 }
