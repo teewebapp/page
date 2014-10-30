@@ -1,5 +1,5 @@
-@extends('admin::layouts.main')
+@extends("admin::layouts.main")
 
 @section('content')
-    @include('page::admin._form')
+    @include("$moduleName::$controllerName._form")
 @stop

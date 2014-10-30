@@ -9,18 +9,16 @@ class PageCategoryTableSeeder extends Seeder {
 
     public function run() {
         Eloquent::unguard();
-        DB::table('page_categories')->delete();
+        #DB::table('page_categories')->delete();
         PageCategory::create(array(
-            'id' => 1,
-            'name' => 'Fixa',
-            'type' => PageCategory::FIXED,
+            'name' => 'Páginas',
+            'type' => PageCategory::PAGE,
             'created_at' => new DateTime,
             'updated_at' => new DateTime
         ));
         PageCategory::create(array(
-            'id' => 2,
-            'name' => 'Outras',
-            'type' => PageCategory::DYNAMIC,
+            'name' => 'Portifólio',
+            'type' => PageCategory::PORTFOLIO,
             'created_at' => new DateTime,
             'updated_at' => new DateTime
         ));

@@ -8,8 +8,8 @@ use Eloquent;
 
 class PageCategory extends Eloquent {
 
-    const FIXED = 'fixed';
-    const DYNAMIC = 'dynamic';
+    const PAGE = 'page';
+    const PORTFOLIO = 'portfolio';
 
 
     public function pages() {

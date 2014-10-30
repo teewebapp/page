@@ -10,84 +10,27 @@ use View, Redirect, Validator, URL, Input;
 
 use Tee\System\Breadcrumbs;
 
-class AdminController extends AdminBaseController {
+use Tee\Admin\Controllers\ResourceController;
 
-    public function __construct() {
-        parent::__construct();
-        View::share('pageTitle', 'Página');
-        Breadcrumbs::addCrumb('Páginas', URL::to('admin/pages'));
-    }
-    
-    /**
-     * Display a listing of pages
-     *
-     * @return Response
-     */
-    public function index()
-    {
-        $categories = PageCategory::all();
+class AdminController extends ResourceController {
+    public $resourceTitle = 'Página';
+    public $resourceName = 'page';
+    public $modelClass = 'Tee\\Page\\Models\\Page';
+    public $moduleName = 'page';
 
-        return View::make('page::admin.index',
-            compact('categories') + array(
-                'modelClass' => 'Tee\Page\Models\Page'
-            )
-        );
+    public function getCategory() {
+        return PageCategory::where('type', '=', PageCategory::PAGE)->first();
     }
 
-    /**
-     * Show the form for creating a new page
-     *
-     * @return Response
-     */
-    public function create()
-    {
-        $page = new Page();
-        $page->fill(Input::all());
-        $id_category = Input::get('category');
-        return View::make(
-            'page::admin.create',
-            compact('page', 'id_category') + array(
-                'pageTitle' => 'Cadastrar Página'
-            )
-        );
+    public function beforeSave($model) {
+        $model->page_category_id = $this->getCategory()->id;
     }
 
-    /**
-     * Store a newly created page in storage.
-     *
-     * @return Response
-     */
-    public function store()
-    {
-        $validator = $this->getValidator();
-
-        if ($validator->fails()) {
-            return Redirect::back()->withErrors($validator)->withInput();
-        }
-
-        Page::create(Input::all() + [
-            'page_category_id' => Input::get('category')
-        ]);
-
-        return Redirect::route('admin.page.index');
-    }
-
-    /**
-     * Show the form for editing the specified page.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function edit($id)
-    {
-        $page = Page::find($id);
-
-        return View::make(
-            'page::admin.edit',
-            compact('page')  + array(
-                'pageTitle' => 'Editar Página'
-            )
-        );
+    public function beforeList($queryBuilder) {
+        $category = $this->getCategory();
+        return $queryBuilder
+            ->where('page_category_id', $category->id)
+            ->orderBy('order');
     }
 
     /**
@@ -119,47 +62,6 @@ class AdminController extends AdminBaseController {
         $page2->save();
 
         return json_encode(['success' => true]);
-    }
-
-    /**
-     * Update the specified page in storage.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function update($id)
-    {
-        $page = Page::findOrFail($id);
-
-        $validator = $this->getValidator();
-
-        if ($validator->fails())
-        {
-            return Redirect::back()->withErrors($validator)->withInput();
-        }
-
-        $page->update(Input::all());
-
-        return Redirect::route('admin.page.index');
-    }
-
-    public function getValidator() {
-        $validator = Validator::make($data = Input::all(), Page::$rules);
-        $validator->setAttributeNames(Page::getAttributeNames());
-        return $validator;
-    }
-
-    /**
-     * Remove the specified page from storage.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function destroy($id)
-    {
-        Page::destroy($id);
-
-        return Redirect::route('admin.page.index');
     }
 
 }
