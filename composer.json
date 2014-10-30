@@ -10,7 +10,13 @@
 	},
 	"autoload": {
 		"classmap": [
-			"."
+			"commands",
+			"controllers",
+			"migrations",
+			"models",
+			"seeds",
+			"tests",
+			"ServiceProvider.php"
 		]
 	},
 	"minimum-stability": "stable"
