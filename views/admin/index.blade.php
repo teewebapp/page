@@ -46,7 +46,7 @@
     </table>
 
     <a class="btn btn-primary" href="{{ route("admin.$resourceName.create") }}">
-        Cadastrar Nova Página
+        Cadastrar {{$resourceTitle}}
     </a>
 
     <script type="text/javascript">
@@ -55,7 +55,7 @@
                 itens: 'tbody tr',
                 up: '.glyphicon-chevron-up',
                 down: '.glyphicon-chevron-down',
-                url: '{{ route("admin.$resourceName.order") }}'
+                url: '{{ route("admin.page.order") }}'
             });
         });
     </script>
