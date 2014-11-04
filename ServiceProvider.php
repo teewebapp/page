@@ -4,18 +4,21 @@ namespace Tee\Page;
 
 use Tee\Page\Widgets\PageBoxList;
 use Tee\System\Widget;
-use App;
+use Event;
 
 class ServiceProvider extends \Illuminate\Support\ServiceProvider {
 
     public function register()
     {
-        App::register('Cviebrock\EloquentSluggable\SluggableServiceProvider');
-        App::register('Codesleeve\LaravelStapler\LaravelStaplerServiceProvider');
-        // registra os widgets
-        //Widget::register(
-        //    'pageBoxList',
-        //    __NAMESPACE__.'\\Widgets\\PageBoxList'
-        //);
+        $this->app->register('Cviebrock\EloquentSluggable\SluggableServiceProvider');
+        $this->app->register('Codesleeve\LaravelStapler\LaravelStaplerServiceProvider');
+
+        Event::listen('admin::loadMenu', function($menu) {
+            $format = '<img src="%s" class="fa" />&nbsp;&nbsp;<span>%s</span>';
+            $menu->add(
+                sprintf($format, moduleAsset('page', 'images/icon_page.png'), 'Páginas'),
+                route('admin.page.index')
+            );
+        });
     }
 }

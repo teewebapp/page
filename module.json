@@ -3,14 +3,5 @@
     "seeder": "Tee\\Page\\Seeds\\DatabaseSeeder",
     "provider": ["Tee\\Page\\ServiceProvider"],
     "command": ["Tee\\Page\\Commands\\PagesReslug"],
-    "order": 20,
-    "admin": {
-        "menuOptions": [
-            {
-                "label": "Páginas",
-                "url": "/admin/page",
-                "icon": "/packages/module/page/assets/images/icon_page.png"
-            }
-        ]
-    }
+    "order": 20
 }
