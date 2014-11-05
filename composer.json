@@ -10,7 +10,7 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"Tee\\Page": "."
+			"Tee\\Page\\": "."
 		}
 	},
 	"minimum-stability": "stable"
