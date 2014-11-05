@@ -9,15 +9,9 @@
 		"codesleeve/laravel-stapler": "1.*"
 	},
 	"autoload": {
-		"classmap": [
-			"commands",
-			"controllers",
-			"migrations",
-			"models",
-			"seeds",
-			"tests",
-			"ServiceProvider.php"
-		]
+		"psr-4": {
+			"Tee\\Page": "."
+		}
 	},
 	"minimum-stability": "stable"
 }
