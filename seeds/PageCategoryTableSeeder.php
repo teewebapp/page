@@ -16,12 +16,6 @@ class PageCategoryTableSeeder extends Seeder {
             'created_at' => new DateTime,
             'updated_at' => new DateTime
         ));
-        PageCategory::create(array(
-            'name' => 'Portifólio',
-            'type' => PageCategory::PORTFOLIO,
-            'created_at' => new DateTime,
-            'updated_at' => new DateTime
-        ));
     }
     
 }
