@@ -18,9 +18,11 @@
                 @foreach($models as $model)
                     <tr data-id="{{{ $model->id }}}">
                         <td>
-                            <a href="javascript:void(0)" class="glyphicon glyphicon-chevron-up" ></div>
-                            <a href="javascript:void(0)" class="glyphicon glyphicon-chevron-down" ></a>
-                            &nbsp;
+                            @if($orderable)
+                                <a href="javascript:void(0)" class="glyphicon glyphicon-chevron-up" ></div>
+                                <a href="javascript:void(0)" class="glyphicon glyphicon-chevron-down" ></a>
+                                &nbsp;
+                            @endif
                             {{{ $model->title }}}
                         </td>
                         <td>
@@ -49,14 +51,16 @@
         Cadastrar {{$resourceTitle}}
     </a>
 
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('.table-page-list').tableOrder({
-                itens: 'tbody tr',
-                up: '.glyphicon-chevron-up',
-                down: '.glyphicon-chevron-down',
-                url: '{{ route("admin.page.order") }}'
+    @if($orderable)
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('.table-page-list').tableOrder({
+                    itens: 'tbody tr',
+                    up: '.glyphicon-chevron-up',
+                    down: '.glyphicon-chevron-down',
+                    url: '{{ route("admin.page.order") }}'
+                });
             });
-        });
-    </script>
+        </script>
+    @endif
 @stop

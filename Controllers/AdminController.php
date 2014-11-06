@@ -17,6 +17,14 @@ class AdminController extends ResourceController {
     public $resourceName = 'page';
     public $modelClass = 'Tee\\Page\\Models\\Page';
     public $moduleName = 'page';
+    public $ordeable = true;
+    public $orderBy = 'order';
+    public $orderType = 'ASC';
+
+    public function index() {
+        View::share('orderable', $this->orderable);
+        return parent::index();
+    }
 
     public function getCategory() {
         return PageCategory::where('type', '=', PageCategory::PAGE)->first();

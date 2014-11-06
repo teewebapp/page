@@ -13,7 +13,7 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider {
         $this->app->register('Cviebrock\EloquentSluggable\SluggableServiceProvider');
         $this->app->register('Codesleeve\LaravelStapler\LaravelStaplerServiceProvider');
 
-        Event::listen('admin::loadMenu', function($menu) {
+        Event::listen('admin::menu.load', function($menu) {
             $format = '<img src="%s" class="fa" />&nbsp;&nbsp;<span>%s</span>';
             $menu->add(
                 sprintf($format, moduleAsset('page', 'images/icon_page.png'), 'Páginas'),

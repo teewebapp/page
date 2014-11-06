@@ -10,6 +10,7 @@ class PageCategory extends Eloquent {
 
     const PAGE = 'page';
     const PORTFOLIO = 'portfolio';
+    const NEWS = 'news';
 
 
     public function pages() {
