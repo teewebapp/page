@@ -69,7 +69,7 @@ class Page extends Model implements SluggableInterface, StaplerableInterface {
 
     public function getImageUrlAttribute() {
         if($this->image_file_name)
-            return $this->image->url();
+            return URL::to($this->image->url());
         else
             return URL::to(moduleAsset('system', 'images/no-photo.jpg'));
     }

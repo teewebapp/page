@@ -17,7 +17,7 @@ class AdminController extends ResourceController {
     public $resourceName = 'page';
     public $modelClass = 'Tee\\Page\\Models\\Page';
     public $moduleName = 'page';
-    public $ordeable = true;
+    public $orderable = true;
     public $orderBy = 'order';
     public $orderType = 'ASC';
 
@@ -38,7 +38,7 @@ class AdminController extends ResourceController {
         $category = $this->getCategory();
         return $queryBuilder
             ->where('page_category_id', $category->id)
-            ->orderBy('order');
+            ->orderBy($this->orderBy, $this->orderType);
     }
 
     /**
