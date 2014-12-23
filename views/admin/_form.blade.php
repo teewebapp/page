@@ -13,7 +13,7 @@
     </div>
 @endif
 
-{{ Form::model($model, ['route' => $model->exists ? ["admin.{$resourceName}.update", $model->id] : ["admin.{$resourceName}.store"], 'method' => $model->exists ? 'PUT' : 'POST', 'role'=>'form', 'files' => true]) }}
+{{ Form::resource($model, "admin.$resourceName", ['files' => true]) }}
 
     <div class="row">
         <div class="col-md-6">

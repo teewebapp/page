@@ -22,6 +22,8 @@ class Page extends Model implements SluggableInterface, StaplerableInterface {
     const VISIBLE = 1;
     const HIDDEN = 0;
 
+    const HOME = 'home';
+
     protected $defaults = [
         'type' => Page::NORMAL,
         'visibility' => Page::VISIBLE

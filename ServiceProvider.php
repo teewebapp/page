@@ -19,6 +19,16 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
         $this->app->register('Cviebrock\EloquentSluggable\SluggableServiceProvider');
         $this->app->register('Codesleeve\LaravelStapler\LaravelStaplerServiceProvider');
 
+        Widget::register(
+            'specialPage',
+            __NAMESPACE__.'\\Widgets\\SpecialPage'
+        );
+
+        Widget::register(
+            'pageList',
+            __NAMESPACE__.'\\Widgets\\PageList'
+        );
+
         Event::listen('admin::menu.load', function($menu) {
             $format = '<img src="%s" class="fa" />&nbsp;&nbsp;<span>%s</span>';
             $menu->add(

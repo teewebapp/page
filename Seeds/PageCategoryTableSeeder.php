@@ -11,6 +11,7 @@ class PageCategoryTableSeeder extends Seeder {
         Eloquent::unguard();
         #DB::table('page_categories')->delete();
         PageCategory::create(array(
+            'id' => 1,
             'name' => 'Páginas',
             'type' => PageCategory::PAGE,
             'created_at' => new DateTime,

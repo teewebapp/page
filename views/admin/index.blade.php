@@ -32,8 +32,11 @@
                             <td>{{{ $model->language }}}</td>
                         @endif
                         <td>
+                            
                             {{ HTML::updateButton('Editar', route("admin.$resourceName.edit", $model->id)) }}
-                            {{ HTML::deleteButton('Remover', route("admin.$resourceName.destroy", $model->id)) }}
+                            @if(!$model->special)
+                                {{ HTML::deleteButton('Remover', route("admin.$resourceName.destroy", $model->id)) }}
+                            @endif
                         </td>
                     </tr>
                 @endforeach
