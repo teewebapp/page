@@ -15,9 +15,20 @@
 
 {{ Form::model($model, ['route' => $model->exists ? ["admin.{$resourceName}.update", $model->id] : ["admin.{$resourceName}.store"], 'method' => $model->exists ? 'PUT' : 'POST', 'role'=>'form', 'files' => true]) }}
 
-    <div class="form-group">
-        {{ Form::labelModel($model, 'title') }}
-        {{ Form::text('title', null, array('class' => 'form-control')) }}
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                {{ Form::labelModel($model, 'title') }}
+                {{ Form::text('title', null, array('class' => 'form-control')) }}
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="form-group">
+                {{ Form::labelModel($model, 'image') }}
+                {{ Form::file('image', null, array('class' => 'form-control')) }}
+            </div>
+        </div>
     </div>
 
     @if(moduleEnabled('i18n'))
@@ -30,21 +41,29 @@
         </div>
     @endif
 
-    <div class="form-group">
-        {{ Form::labelModel($model, 'type') }}
-        {{ Form::select('type', [
-            Tee\Page\Models\Page::NORMAL => 'Normal',
-            Tee\Page\Models\Page::LINKED => 'Link Externo',
-        ], null, [
-            'class' => 'form-control',
-            'data-bind' => 'value:pageType'
-        ]) }}
-    </div>
-
-    <div data-bind="visible: contentVisible">
-        <div class="form-group">
-            {{ Form::labelModel($model, 'image') }}
-            {{ Form::file('image', null, array('class' => 'form-control')) }}
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                {{ Form::labelModel($model, 'type') }}
+                {{ Form::select('type', [
+                    Tee\Page\Models\Page::NORMAL => 'Normal',
+                    Tee\Page\Models\Page::LINKED => 'Link Externo',
+                ], null, [
+                    'class' => 'form-control',
+                    'data-bind' => 'value:pageType'
+                ]) }}
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                {{ Form::labelModel($model, 'visibility') }}
+                {{ Form::select('visibility', [
+                    Tee\Page\Models\Page::VISIBLE => 'Menu Principal',
+                    Tee\Page\Models\Page::HIDDEN => 'Oculto (será usado como link em outro local)',
+                ], null, [
+                    'class' => 'form-control',
+                ]) }}
+            </div>
         </div>
     </div>
 

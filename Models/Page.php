@@ -19,14 +19,18 @@ class Page extends Model implements SluggableInterface, StaplerableInterface {
     const NORMAL = 1;
     const LINKED = 2;
 
-    protected $defaults = array(
-        'type' => Page::NORMAL
-    );
+    const VISIBLE = 1;
+    const HIDDEN = 0;
 
-    protected $sluggable = array(
+    protected $defaults = [
+        'type' => Page::NORMAL,
+        'visibility' => Page::VISIBLE
+    ];
+
+    protected $sluggable = [
         'build_from' => 'title',
         'save_to'    => 'slug',
-    );
+    ];
 
 	public static $rules = [
 		'title' => 'required'
@@ -34,6 +38,7 @@ class Page extends Model implements SluggableInterface, StaplerableInterface {
 	protected $fillable = [
         'link',
         'type',
+        'visibility',
         'order',
         'image',
         'title',
@@ -63,7 +68,8 @@ class Page extends Model implements SluggableInterface, StaplerableInterface {
             'image' => 'Imagem',
             'type' => 'Tipo',
             'link' => 'Link Externo',
-            'language' => 'Linguagem'
+            'language' => 'Linguagem',
+            'visibility' => 'Visibilidade',
         );
     }
 

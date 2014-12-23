@@ -6,7 +6,13 @@ use Tee\Page\Widgets\PageBoxList;
 use Tee\System\Widget;
 use Event;
 
-class ServiceProvider extends \Illuminate\Support\ServiceProvider {
+class ServiceProvider extends \Illuminate\Support\ServiceProvider
+{
+
+    public function boot() 
+    {
+        $this->commands('Tee\Page\Commands\PagesReslug');
+    }
 
     public function register()
     {
