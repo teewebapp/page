@@ -6,6 +6,7 @@ use Tee\System\Controllers\BaseController;
 
 use Tee\Page\Models\Page;
 use View, Input;
+use Tee\System\Breadcrumbs;
 
 class PageController extends BaseController {
 
@@ -21,6 +22,8 @@ class PageController extends BaseController {
         $pageTitle = $page->title;
         $pageDescription = $page->description;
         $pageKeywords = $page->keywords;
+
+        Breadcrumbs::addCrumb($page->title, $page->url);
 
         return View::make(
             'page::page.show',

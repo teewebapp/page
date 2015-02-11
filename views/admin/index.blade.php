@@ -19,7 +19,7 @@
                     <tr data-id="{{{ $model->id }}}">
                         <td>
                             @if($orderable)
-                                <a href="javascript:void(0)" class="glyphicon glyphicon-chevron-up" ></div>
+                                <a href="javascript:void(0)" class="glyphicon glyphicon-chevron-up" ></a>
                                 <a href="javascript:void(0)" class="glyphicon glyphicon-chevron-down" ></a>
                                 &nbsp;
                             @endif
