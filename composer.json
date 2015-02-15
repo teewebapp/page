@@ -5,7 +5,6 @@
 	"license": "MIT",
 	"require": {
 		"teewebapp/system": ">=1.0.0",
-		"cviebrock/eloquent-sluggable": "2.*",
 		"codesleeve/laravel-stapler": "1.*"
 	},
 	"autoload": {
