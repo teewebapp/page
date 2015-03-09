@@ -5,8 +5,10 @@ namespace Tee\Page\Models;
 use Illuminate\Auth\UserInterface;
 use Illuminate\Database\Eloquent\SoftDeletingTrait;
 use Eloquent, Config;
+use Tee\System\Traits\CurrentSiteTrait;
 
 class PageCategory extends Eloquent {
+    use CurrentSiteTrait;
 
     const PAGE = 'page';
     const PORTFOLIO = 'portfolio';

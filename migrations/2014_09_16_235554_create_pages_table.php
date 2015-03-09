@@ -20,6 +20,8 @@ class CreatePagesTable extends Migration {
 			$table->text('text');
 			$table->string('keywords');
 			$table->string('slug');
+			$table->unsignedInteger('site_id');
+			$table->foreign('site_id')->references('id')->on('sites');
 			$table->timestamps();
 		});
 	}

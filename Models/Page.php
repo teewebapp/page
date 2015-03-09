@@ -6,13 +6,14 @@ use Tee\System\Models\Model;
 
 use Cviebrock\EloquentSluggable\SluggableInterface;
 use Cviebrock\EloquentSluggable\SluggableTrait;
-
 use Codesleeve\Stapler\ORM\StaplerableInterface;
 use Codesleeve\Stapler\ORM\EloquentTrait;
-
+use Tee\System\Traits\CurrentSiteTrait;
 use URL;
 
-class Page extends Model implements SluggableInterface, StaplerableInterface {
+class Page extends Model implements SluggableInterface, StaplerableInterface
+{
+    use CurrentSiteTrait;
     use SluggableTrait;
     use EloquentTrait; // Stapler Image Upload
 
