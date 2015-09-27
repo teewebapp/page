@@ -52,7 +52,8 @@ class Page extends Model implements SluggableInterface, StaplerableInterface
         'page_category_id'
     ];
 
-    public function __construct(array $attributes = array()) {
+    public function __construct(array $attributes = array())
+    {
         $this->hasAttachedFile('image', [
             'styles' => [
                 'medium' => '300x300',
@@ -62,7 +63,8 @@ class Page extends Model implements SluggableInterface, StaplerableInterface
         parent::__construct($attributes);
     }
 
-    public static function getAttributeNames() {
+    public static function getAttributeNames()
+    {
         return array(
             'title' => 'Título',
             'description' => 'Descrição',
@@ -76,18 +78,26 @@ class Page extends Model implements SluggableInterface, StaplerableInterface
         );
     }
 
-    public function getImageUrlAttribute() {
+    public function getImageUrlAttribute()
+    {
         if($this->image_file_name)
             return URL::to($this->image->url());
         else
             return URL::to(moduleAsset('system', 'images/no-photo.jpg'));
     }
 
-    public function category() {
+    public function category()
+    {
         return $this->belongsTo(__NAMESPACE__.'\\PageCategory', 'page_category_id');
     }
 
-    public function getUrlAttribute() {
+    public function scopeSpecial($query, $name)
+    {
+        return $query->where('special', '=', $name);
+    }
+
+    public function getUrlAttribute()
+    {
         if($this->type == Page::LINKED)
             return $this->link;
         else
